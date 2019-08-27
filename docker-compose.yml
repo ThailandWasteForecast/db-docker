@@ -1,0 +1,12 @@
+version: '2'
+services:
+  wasteforecast-db:
+    container_name: wasteforecast-db
+    image: mysql:5.7 #8.0.17
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+      MYSQL_DATABASE: wasteforecast
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d
